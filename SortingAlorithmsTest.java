@@ -15,7 +15,13 @@ import org.junit.runners.JUnit4;
 //-------------------------------------------------------------------------
 /**
  *  Test class for SortComparison.java
- *
+ *			10	100	1000	FewUniq NearSort Reversed Sorted
+ 	Insertion	8980	94939	4799974	3402120	27940	295080	1425
+	Select		6842	117034	2445033	1441760	591942	1414176	264575
+	Quick		12829	27808	377318	123734	122879	975767	443333
+	Merg(It)	11690	52458	567513	196813	177126	169984	155984
+	Merge(Re)	20098	86985	751535	158231	125577	163748	157426
+ 
  *	a. Which of the sorting algorithms does the order of input have an impact on? Why?
  		All of them. Every sorting algorithm is impacted by the size of n the only difference is to what degree, this is due to 
 		all sortign algorithms necessarily look at all elements of the array being sorted, thus the magnitude will always have 
@@ -34,9 +40,9 @@ import org.junit.runners.JUnit4;
  *		sizes assuming the array is randomly sorted.
  *	d. Did you observe any difference between iterative and recursive implementations of merge
  *	sort?
- *		i found that the iterative approach worked faster for normally randomised arrays. For nearly ordered and few unique
- 		merge sort iterative seriously lagged behind its recursive counterpart, i then observed no considerable winner in my 
-		reverse order and sorted test files
+ *		I found that the iterative approach worked faster for normally randomised arrays. For nearly ordered and few unique
+ 		merge sort iterative seriously lagged behind its recursive counterpart. I then observed no considerable winner in my 
+		reverse order and sorted test files.
  *	e. Which algorithm is the fastest for each of the 7 input files?
  *		1. Select
  *		2. Quick
