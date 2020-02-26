@@ -1,7 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -143,7 +148,70 @@ public class SortComparisonTest
      */
     public static void main(String[] args)
     {
-        //TODO: implement this method
+    	String[] inputFiles = {"numbers10.txt",
+				    			"numbers100.txt",
+				    			"numbers1000.txt",
+				    			"numbers1000Duplicates.txt",
+				    			"numbersNearlyOrdered1000.txt",
+				    			"numbersReverse1000.txt",
+				    			"numbersSorted1000.txt"};
+		
+    	for(int i = 0; i < inputFiles.length; i++) {
+    		double[] doubles = SortComparison.getDoubles(inputFiles[i]);
+    		
+    		long start = System.nanoTime();
+    		SortComparison.insertionSort(doubles);
+    		long end = System.nanoTime();
+    		System.out.println("Insertion Sort test " + inputFiles[i] + " ran in " + (end-start));
+    		
+    	}
+    	System.out.println();
+    	
+    	for(int i = 0; i < inputFiles.length; i++) {
+    		double[] doubles = SortComparison.getDoubles(inputFiles[i]);
+    		
+    		long start = System.nanoTime();
+    		SortComparison.selectionSort(doubles);
+    		long end = System.nanoTime();
+    		System.out.println("Selection Sort test " + inputFiles[i] + " ran in " + (end-start));
+    		
+    	}
+    	System.out.println();
+    	
+    	for(int i = 0; i < inputFiles.length; i++) {
+    		double[] doubles = SortComparison.getDoubles(inputFiles[i]);
+    		
+    		long start = System.nanoTime();
+    		SortComparison.quickSort(doubles);
+    		long end = System.nanoTime();
+    		System.out.println("Quick Sort test " + inputFiles[i] + " ran in " + (end-start));
+    		
+    	}
+    	
+    	System.out.println();
+    	
+    	for(int i = 0; i < inputFiles.length; i++) {
+    		double[] doubles = SortComparison.getDoubles(inputFiles[i]);
+    		
+    		long start = System.nanoTime();
+    		SortComparison.mergeSortIterative(doubles);
+    		long end = System.nanoTime();
+    		System.out.println("Merge (It) Sort test " + inputFiles[i] + " ran in " + (end-start));
+    		
+    	}
+    	System.out.println();
+    	
+    	for(int i = 0; i < inputFiles.length; i++) {
+    		double[] doubles = SortComparison.getDoubles(inputFiles[i]);
+    		
+    		long start = System.nanoTime();
+    		SortComparison.mergeSortRecursive(doubles);
+    		long end = System.nanoTime();
+    		System.out.println("Merge (Re) Sort test " + inputFiles[i] + " ran in " + (end-start));
+
+    	}
+    	System.out.println();
+        
     }
 
 }
