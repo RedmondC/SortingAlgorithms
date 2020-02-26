@@ -1,4 +1,7 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +11,7 @@ import org.junit.runners.JUnit4;
 /**
  *  Test class for SortComparison.java
  *
- *  @author
+ *  @author Colin Redmond 18319775
  *  @version HT 2020
  */
 @RunWith(JUnit4.class)
@@ -21,8 +24,101 @@ public class SortComparisonTest
         new SortComparison();
     }
 
-    //~ Public Methods ........................................................
+    //~ Public Methods ......................................................
 
+    // TODO: add more tests here. Each line of code and ech decision in Collinear.java should
+    // be executed at least once from at least one test.
+    @Test
+    public void testInsertS()
+    {
+    	double[] testStringArray = new double[5];
+    	testStringArray[0] = 2.7;
+    	testStringArray[1] = 3;
+    	testStringArray[2] = 6;
+	 	testStringArray[3] = 6.9;
+	 	testStringArray[4] = 1;
+	 	assertTrue(Arrays.equals(new double[] {1,2.7,3,6,6.9}, SortComparison.insertionSort(testStringArray)));
+	 	
+    	testStringArray[0] = 200.7;
+    	testStringArray[1] = 36;
+    	testStringArray[2] = 7;
+	 	testStringArray[3] = 4.21;
+	 	testStringArray[4] = 1.1;
+	 	assertTrue(Arrays.equals(new double[] {1.1,4.21,7,36,200.7}, SortComparison.insertionSort(testStringArray)));
+    }
+    @Test
+    public void testSelectS()
+    {
+    	double[] testStringArray = new double[5];
+    	testStringArray[0] = 2.7;
+    	testStringArray[1] = 3;
+    	testStringArray[2] = 6;
+	 	testStringArray[3] = 6.9;
+	 	testStringArray[4] = 1;
+	 	assertTrue(Arrays.equals(new double[] {1,2.7,3,6,6.9}, SortComparison.selectionSort(testStringArray)));
+	 	
+    	testStringArray[0] = 200.7;
+    	testStringArray[1] = 36;
+    	testStringArray[2] = 7;
+	 	testStringArray[3] = 4.21;
+	 	testStringArray[4] = 1.1;
+	 	assertTrue(Arrays.equals(new double[] {1.1,4.21,7,36,200.7}, SortComparison.selectionSort(testStringArray)));
+    }
+    @Test
+    public void testQuickS()
+    {
+    	double[] testStringArray = new double[5];
+    	testStringArray[0] = 2.7;
+    	testStringArray[1] = 3;
+    	testStringArray[2] = 6;
+	 	testStringArray[3] = 6.9;
+	 	testStringArray[4] = 1;
+	 	assertTrue(Arrays.equals(new double[] {1,2.7,3,6,6.9}, SortComparison.quickSort(testStringArray)));
+	 	
+    	testStringArray[0] = 200.7;
+    	testStringArray[1] = 36;
+    	testStringArray[2] = 7;
+	 	testStringArray[3] = 4.21;
+	 	testStringArray[4] = 1.1;	
+	 	assertTrue(Arrays.equals(new double[] {1.1,4.21,7,36,200.7}, SortComparison.quickSort(testStringArray)));
+    }
+    @Test
+    public void testMergeItS()
+    {
+    	double[] testStringArray = new double[5];
+    	testStringArray[0] = 2.7;
+    	testStringArray[1] = 3;
+    	testStringArray[2] = 6;
+	 	testStringArray[3] = 6.9;
+	 	testStringArray[4] = 1;
+	 	assertTrue(Arrays.equals(new double[] {1,2.7,3,6,6.9}, SortComparison.mergeSortIterative(testStringArray)));
+	 	
+    	testStringArray[0] = 200.7;
+    	testStringArray[1] = 36;
+    	testStringArray[2] = 7;
+	 	testStringArray[3] = 4.21;
+	 	testStringArray[4] = 1.1;
+	 	assertTrue(Arrays.equals(new double[] {1.1,4.21,7,36,200.7}, SortComparison.mergeSortIterative(testStringArray)));
+    }
+    @Test
+    public void testMergeReS()
+    {
+    	double[] testStringArray = new double[5];
+    	testStringArray[0] = 2.7;
+    	testStringArray[1] = 3;
+    	testStringArray[2] = 6;
+	 	testStringArray[3] = 6.9;
+	 	testStringArray[4] = 1;
+	 	assertTrue(Arrays.equals(new double[] {1,2.7,3,6,6.9}, SortComparison.mergeSortRecursive(testStringArray)));
+	 	
+    	testStringArray[0] = 200.7;
+    	testStringArray[1] = 36;
+    	testStringArray[2] = 7;
+	 	testStringArray[3] = 4.21;
+	 	testStringArray[4] = 1.1;
+	 	assertTrue(Arrays.equals(new double[] {1.1,4.21,7,36,200.7}, SortComparison.mergeSortRecursive(testStringArray)));
+    }
+    
     // ----------------------------------------------------------
     /**
      * Check that the methods work for empty arrays
@@ -30,12 +126,15 @@ public class SortComparisonTest
     @Test
     public void testEmpty()
     {
+
+    	double[] testStringArray = null;
+    	assertEquals("Checking an empty array insertionSort", null, SortComparison.insertionSort(testStringArray));
+    	assertEquals("Checking an empty array quickSort", null, SortComparison.quickSort(testStringArray));
+    	assertEquals("Checking an empty array mergeSortIterative", null, SortComparison.mergeSortIterative(testStringArray));
+    	assertEquals("Checking an empty array mergeSortRecursive", null, SortComparison.mergeSortRecursive(testStringArray));
+    	assertEquals("Checking an empty array selectionSort", null, SortComparison.selectionSort(testStringArray));
     }
-
-
-    // TODO: add more tests here. Each line of code and ech decision in Collinear.java should
-    // be executed at least once from at least one test.
-
+    
     // ----------------------------------------------------------
     /**
      *  Main Method.
