@@ -16,6 +16,36 @@ import org.junit.runners.JUnit4;
 /**
  *  Test class for SortComparison.java
  *
+ *	a. Which of the sorting algorithms does the order of input have an impact on? Why?
+ 		All of them. Every sorting algorithm is impacted by the size of n the only difference is to what degree, this is due to 
+		all sortign algorithms necessarily look at all elements of the array being sorted, thus the magnitude will always have 
+		an impact.
+ * 	b. Which algorithm has the biggest difference between the best and worst performance, based
+ *	on the type of input, for the input of size 1000? Why?
+ 		Insertion Sort was the most affected by the change in data input this is a biproduct of insertion sort placing a single 
+		element each time, this sorting algorithm works perfectly for almost sorted arrays but struggles with large unsorted 
+		arrays.
+ *	c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+ *	based on the input size? Please consider only input files with random order for this answer.
+ *		For the worst scalability Insertion sort is the clear winner (or loser in this case) as again it is only 
+ *		placing a single element and unlike selection sort it does not have a growing finished arrray at the beginning of the
+ * 		sorting array thus making it (in my test) 2 times slower.
+ * 		For the best scalability Quick sort was my winner as it has a low worst case running time and is efficient at all 
+ *		sizes assuming the array is randomly sorted.
+ *	d. Did you observe any difference between iterative and recursive implementations of merge
+ *	sort?
+ *		i found that the iterative approach worked faster for normally randomised arrays. For nearly ordered and few unique
+ 		merge sort iterative seriously lagged behind its recursive counterpart, i then observed no considerable winner in my 
+		reverse order and sorted test files
+ *	e. Which algorithm is the fastest for each of the 7 input files?
+ *		1. Select
+ *		2. Quick
+ *		3. Quick
+ * 		4. Quick
+ *		5. Insertion
+ *		6. Insertion
+ *		7. Insertion
+ *		
  *  @author Colin Redmond 18319775
  *  @version HT 2020
  */
