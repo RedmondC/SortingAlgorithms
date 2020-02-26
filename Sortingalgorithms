@@ -1,10 +1,26 @@
 // -------------------------------------------------------------------------
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *  This class contains static methods that implementing sorting of an array of numbers
  *  using different sort algorithms.
+ *
+ *	a. Which of the sorting algorithms does the order of input have an impact on? Why?
+ * 	b. Which algorithm has the biggest difference between the best and worst performance, based
+ *	on the type of input, for the input of size 1000? Why?
+ *	c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+ *	based on the input size? Please consider only input files with random order for this answer.
+ *	d. Did you observe any difference between iterative and recursive implementations of merge
+ *	sort?
+ *	e. Which algorithm is the fastest for each of the 7 input files?
  *
  *  @author Colin Redmond 18319775
  *  @version HT 2020
@@ -151,14 +167,12 @@ class SortComparison {
         { 
             int mid = a.length / 2; 
   
-            // Split left part 
             double[] left = new double[mid]; 
             for(int i = 0; i < mid; i++) 
             { 
                 left[i] = a[i]; 
             } 
               
-            // Split right part 
             double[] right = new double[a.length - mid]; 
             for(int i = mid; i < a.length; i++) 
             { 
@@ -171,7 +185,7 @@ class SortComparison {
             int j = 0; 
             int k = 0; 
   
-            // Merge left and right arrays 
+
             while(i < left.length && j < right.length) 
             { 
                 if(left[i] < right[j]) 
@@ -186,7 +200,7 @@ class SortComparison {
                 } 
                 k++; 
             } 
-            // Collect remaining elements 
+
             while(i < left.length) 
             { 
                 a[k] = left[i]; 
@@ -282,12 +296,39 @@ class SortComparison {
         }
     }
 
-
-
-
-    public static void main(String[] args) {
-
-        
+    
+    public static double[] getDoubles(String inputFiles) {
+    	FileReader reader = null;
+		try {
+			reader = new FileReader(inputFiles);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+    	BufferedReader buffer = new BufferedReader(reader);
+    	boolean end = false;
+    	ArrayList<Double> doubles = new ArrayList<>();
+    	
+    	while(!end) {
+    		String inputLine = null;
+			try {
+				inputLine = buffer.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+    		if(inputLine != null) {
+    			doubles.add(Double.parseDouble(inputLine));
+    		} else end = true;
+    	}
+    	
+    	double[] output = new double[doubles.size()];
+    	
+    	for(int i = 0; i < doubles.size(); i++) {
+    		output[i] = doubles.get(i);
+    	}
+    	
+    	return output;
+    	
+    }
     }
 
-}//end class
+//end class
