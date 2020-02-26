@@ -13,15 +13,6 @@ import java.io.IOException;
  *  This class contains static methods that implementing sorting of an array of numbers
  *  using different sort algorithms.
  *
- *	a. Which of the sorting algorithms does the order of input have an impact on? Why?
- * 	b. Which algorithm has the biggest difference between the best and worst performance, based
- *	on the type of input, for the input of size 1000? Why?
- *	c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
- *	based on the input size? Please consider only input files with random order for this answer.
- *	d. Did you observe any difference between iterative and recursive implementations of merge
- *	sort?
- *	e. Which algorithm is the fastest for each of the 7 input files?
- *
  *  @author Colin Redmond 18319775
  *  @version HT 2020
  */
